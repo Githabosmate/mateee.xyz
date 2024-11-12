@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <title>mateee.xyz</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1304153647562756248/1305584688290594987/free-cross-icon-3203-thumb.png?ex=67338ffe&is=67323e7e&hm=e79c3fc74e15278aa886ac8d8a5d1bb138c46afe0e8a769bee6cce5cd186b4bf&">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FF0000">
+    <link rel="stylesheet" href="main.css">
+    <style>
+    .unselectable{
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    </style>
+</head>
+<body>
+<main>
+    <script>
+      function audioPlay(){
+        var audio = document.getElementById("audio");
+        audio.volume = 0.0;
+        audio.play();
+      }
+      function videoPlay(){
+        var video = document.getElementById("video");
+        (video.volume = 1), 0;
+        video.play();
+      }
+    </script>
+      <input type="checkbox" autocomplete="off" id="overlay-toggle" />
+      <input type="checkbox" autocomplete="off" id="overlay-toggle" />
+      <div class="overlay fullscreen">
+        <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
+          <span class="no-hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
+          <span class="hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
+        </label>
+      </div>
+      <audio loop="" preload="auto" id="audio">
+        <source src="Lil Tecca - Love Me (Official Music Video) (1).mp4" type="audio/mp3"/>
+      </audio>
+      <video loop="" playsinline="" preload="auto" class="fullscreen bg-video" id="video">
+        <source src="Lil Tecca - Love Me (Official Music Video) (1).mp4" type="video/mp4"/>
+      </video>
+      <section class="fullscreen text-content">
+        <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
+        <div class="Socials">
+          <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #ffae00;">Instagram</a>
+          <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
+        </div>
+      </section>
+</main>
+</body>
+</html>
