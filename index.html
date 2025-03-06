@@ -2,7 +2,7 @@
 <head>
     <title>mateee.xyz</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1304153647562756248/1305584688290594987/free-cross-icon-3203-thumb.png?ex=67338ffe&is=67323e7e&hm=e79c3fc74e15278aa886ac8d8a5d1bb138c46afe0e8a769bee6cce5cd186b4bf&">
+    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1345069245712568416/1347265121604472985/gold-ingot.png?ex=67cb31eb&is=67c9e06b&hm=802460d78ce11febf532029ce52e078d6b47e6ebce9c1b3ae552e05111a97b92&">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FF0000">
@@ -15,6 +15,23 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+    }
+    .view-counter {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: mono;
+      font-size: 1em;
+      color: white;
+      text-shadow: 0 0 0.4em #0400ff;
+    }
+    .view-counter img {
+      width: 24px;
+      height: 24px;
+      filter: drop-shadow(0 0 0.4em #0400ff);
     }
     </style>
 </head>
@@ -31,28 +48,45 @@
         (video.volume = 1), 0;
         video.play();
       }
+      function updateViewCounter() {
+        let views = localStorage.getItem('pageViews');
+        if (!views) {
+          views = 0;
+        }
+        views = parseInt(views) + 1;
+        localStorage.setItem('pageViews', views);
+        document.getElementById('viewCount').innerText = views;
+      }
+      window.onload = function() {
+        updateViewCounter();
+      };
     </script>
-      <input type="checkbox" autocomplete="off" id="overlay-toggle" />
-      <input type="checkbox" autocomplete="off" id="overlay-toggle" />
-      <div class="overlay fullscreen">
-        <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
-          <span class="no-hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
-          <span class="hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
-        </label>
+    <input type="checkbox" autocomplete="off" id="overlay-toggle" />
+    <input type="checkbox" autocomplete="off" id="overlay-toggle" />
+    <div class="overlay fullscreen">
+      <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
+        <span class="no-hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
+        <span class="hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
+      </label>
+    </div>
+    <audio loop="" preload="auto" id="audio">
+      <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp3" type="audio/mp3"/>
+    </audio>
+    <video loop="" playsinline="" preload="auto" class="fullscreen bg-video" id="video">
+      <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp4" type="video/mp4"/>
+    </video>
+    <section class="fullscreen text-content">
+      <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
+      <div class="Socials">
+        <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #ffae00;">Instagram</a>
+        <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
+        <a href="https://open.spotify.com/user/3137pwuzjp2ah6b57eaf6gtvdosi?si=ce0799223b904cdb" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #65e90d;"">Spotify</a>
       </div>
-      <audio loop="" preload="auto" id="audio">
-        <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp3" type="audio/mp3"/>
-      </audio>
-      <video loop="" playsinline="" preload="auto" class="fullscreen bg-video" id="video">
-        <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp4" type="video/mp4"/>
-      </video>
-      <section class="fullscreen text-content">
-        <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
-        <div class="Socials">
-          <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #ffae00;">Instagram</a>
-          <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
-        </div>
-      </section>
+    </section>
+    <div class="view-counter unselectable">
+      <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Views">
+      <span id="viewCount">0</span>
+    </div>
 </main>
 </body>
 </html>
