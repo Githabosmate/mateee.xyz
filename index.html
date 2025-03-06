@@ -8,8 +8,9 @@
     <meta name="theme-color" content="#FF0000">
     <link rel="stylesheet" href="main.css">
     <style>
-    .unselectable{
+    .unselectable {
       -webkit-user-select: none;
+      -webkit-user-drag: none;
       -webkit-touch-callout: none;
       -moz-user-select: none;
       -ms-user-select: none;
@@ -20,12 +21,12 @@
 <body>
 <main>
     <script>
-      function audioPlay(){
+      function audioPlay() {
         var audio = document.getElementById("audio");
         audio.volume = 0.0;
         audio.play();
       }
-      function videoPlay(){
+      function videoPlay() {
         var video = document.getElementById("video");
         (video.volume = 1), 0;
         video.play();
@@ -40,10 +41,10 @@
         </label>
       </div>
       <audio loop="" preload="auto" id="audio">
-        <source src="Lil Tecca - Love Me (Official Music Video) (1).mp4" type="audio/mp3"/>
+        <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp3" type="audio/mp3"/>
       </audio>
       <video loop="" playsinline="" preload="auto" class="fullscreen bg-video" id="video">
-        <source src="Lil Tecca - Love Me (Official Music Video) (1).mp4" type="video/mp4"/>
+        <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp4" type="video/mp4"/>
       </video>
       <section class="fullscreen text-content">
         <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
