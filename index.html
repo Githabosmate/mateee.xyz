@@ -2,7 +2,7 @@
 <head>
     <title>mateee.xyz</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1345069245712568416/1347265121604472985/gold-ingot.png?ex=67cb31eb&is=67c9e06b&hm=802460d78ce11febf532029ce52e078d6b47e6ebce9c1b3ae552e05111a97b92&">
+    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1351252610094469205/1351952770487418980/image.png?ex=67dc3fa2&is=67daee22&hm=74a52e65778939874f5c3d5fc0811af6896c42b2ebcbe2cea3439fb2d9a2105d&">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FF0000">
@@ -16,22 +16,26 @@
       -ms-user-select: none;
       user-select: none;
     }
-    .view-counter {
+    .bg-video {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: mono;
-      font-size: 1em;
-      color: white;
-      text-shadow: 0 0 0.4em #0400ff;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
-    .view-counter img {
-      width: 24px;
-      height: 24px;
-      filter: drop-shadow(0 0 0.4em #0400ff);
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
     }
     </style>
 </head>
@@ -65,16 +69,18 @@
     <input type="checkbox" autocomplete="off" id="overlay-toggle" />
     <div class="overlay fullscreen">
       <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
-        <span class="no-hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
-        <span class="hover" style="font-family: mono; font-size: 0.6em">Click to enter...</span>
+        <span class="no-hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
+        <span class="hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
       </label>
     </div>
     <audio loop="" preload="auto" id="audio">
-      <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp3" type="audio/mp3"/>
+      <source src="Future - 712PM (Directed by Travis Scott) (Official Music Video).mp3" type="audio/mp3"/>
     </audio>
-    <video loop="" playsinline="" preload="auto" class="fullscreen bg-video" id="video">
-      <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video).mp4" type="video/mp4"/>
-    </video>
+    <div class="video-container">
+      <video loop="" playsinline="" preload="auto" class="bg-video" id="video">
+        <source src="Future - 712PM (Directed by Travis Scott) (Official Music Video) (4).mp4" type="video/mp4"/>
+      </video>
+    </div>
     <section class="fullscreen text-content">
       <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
       <div class="Socials">
@@ -82,10 +88,6 @@
         <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
       </div>
     </section>
-    <div class="view-counter unselectable">
-      <img src="https://cdn-icons-png.flaticon.com/512/709/709612.png" alt="Views">
-      <span id="viewCount">0</span>
-    </div>
 </main>
 </body>
 </html>
