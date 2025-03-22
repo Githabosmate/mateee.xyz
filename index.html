@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <title>mateee.xyz</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1351252610094469205/1351952770487418980/image.png?ex=67dc3fa2&is=67daee22&hm=74a52e65778939874f5c3d5fc0811af6896c42b2ebcbe2cea3439fb2d9a2105d&">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FF0000">
+    <link rel="stylesheet" href="main.css">
+    <style>
+    .unselectable {
+      -webkit-user-select: none;
+      -webkit-user-drag: none;
+      -webkit-touch-callout: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+    }
+    </style>
+</head>
+<body>
+<main>
+    <script>
+      function audioPlay() {
+        var audio = document.getElementById("audio");
+        audio.volume = 0.0;
+        audio.play();
+      }
+      function videoPlay() {
+        var video = document.getElementById("video");
+        (video.volume = 1), 0;
+        video.play();
+      }
+    </script>
+    <input type="checkbox" autocomplete="off" id="overlay-toggle">
+    <input type="checkbox" autocomplete="off" id="overlay-toggle">
+    <div class="overlay fullscreen">
+      <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
+        <span class="no-hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
+        <span class="hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
+      </label>
+    </div>
+    <audio loop="" preload="auto" id="audio">
+      <source src="Future - 712PM (Directed by Travis Scott) (Official Music Video).mp3" type="audio/mp3">
+    </audio>
+    <div class="video-container">
+      <video loop="" playsinline="" preload="auto" class="bg-video" id="video">
+        <source src="Future - 712PM (Directed by Travis Scott) (Official Music Video) (6).mp4" type="video/mp4">
+      </video>
+    </div>
+    <section class="fullscreen text-content">
+      <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
+      <div class="Socials">
+        <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #ffae00;">Instagram</a>
+        <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
+      </div>
+    </section>
+</main>
+</body>
+</html>
