@@ -6,37 +6,180 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FF0000">
-    <link rel="stylesheet" href="main.css">
     <style>
-    .unselectable {
-      -webkit-user-select: none;
-      -webkit-user-drag: none;
-      -webkit-touch-callout: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    .bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    .video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: black;
-    }
+        @font-face {
+            font-family: mono;
+            src: url(mono.ttf);
+        }
+
+        @font-face {
+            font-family: derk;
+            src: url(derk.otf);
+        }
+
+        html {
+            font-family: mono;
+        }
+
+        *, *::after, *::before {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #111;
+        }
+
+        #overlay-toggle {
+            position: absolute;
+            display: none;
+        }
+
+        .debold {
+            font-weight: 400;
+        }
+
+        .socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .overlay {
+            z-index: 1;
+            background-color: #000;
+        }
+
+        .overlay label {
+            display: grid;
+            place-items: center;
+            width: 100vw;
+            height: 100vw;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        .no-hover {
+            display: block;
+        }
+
+        .hover {
+            display: none;
+        }
+
+        .fullscreen {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-height: 100vh;
+            min-width: 100vw;
+        }
+
+        .text-content {
+            background: transparent;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .text-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .text-content p {
+            padding-top: 30px;
+            padding-right: 10px;
+            padding-bottom: 31px;
+            padding-left: 10px;
+            font-size: 1.7rem;
+            font-weight: 500;
+            line-height: 0;
+            color: silver;
+            display: flex;
+        }
+
+        .text-content a {
+            padding-top: 30px;
+            padding-right: 10px;
+            padding-bottom: 31px;
+            padding-left: 10px;
+            font-size: 1.3rem;
+            line-height: 0;
+            color: #ccc;
+            display: flex;
+        }
+
+        #overlay-toggle:checked~.overlay {
+            animation-fill-mode: forwards;
+            animation-name: fade, hide;
+            animation-delay: 0s, 600ms;
+            animation-duration: 600ms, 1ms;
+        }
+
+        #overlay-toggle:checked~.overlay label {
+            animation-fill-mode: forwards;
+            animation-name: fade;
+            animation-delay: 0s;
+            animation-duration: 500ms;
+        }
+
+        @media (hover: hover) {
+            .hover {
+                display: block;
+            }
+
+            .no-hover {
+                display: none;
+            }
+        }
+
+        @keyframes fade {
+            to {
+                opacity: 0;
+            }
+        }
+
+        @keyframes hide {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        .unselectable {
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
     </style>
 </head>
 <body>
@@ -53,8 +196,7 @@
         video.play();
       }
     </script>
-    <input type="checkbox" autocomplete="off" id="overlay-toggle">
-    <input type="checkbox" autocomplete="off" id="overlay-toggle">
+    <input type="checkbox" autocomplete="off" id="overlay-toggle" />
     <div class="overlay fullscreen">
       <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
         <span class="no-hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
@@ -62,16 +204,16 @@
       </label>
     </div>
     <audio loop="" preload="auto" id="audio">
-      <source src="Future - 712PM (Directed by Travis Scott) (Official Music Video).mp3" type="audio/mp3">
+      <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video) (2).mp4" type="audio/mp3"/>
     </audio>
     <div class="video-container">
       <video loop="" playsinline="" preload="auto" class="bg-video" id="video">
-        <source src="Future - 712PM (Directed by Travis Scott) (Official Music Video) (6).mp4" type="video/mp4">
+        <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video) (2).mp4" type="video/mp4"/>
       </video>
     </div>
     <section class="fullscreen text-content">
       <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
-      <div class="Socials">
+      <div class="socials">
         <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #ffae00;">Instagram</a>
         <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
       </div>
