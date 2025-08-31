@@ -1,223 +1,198 @@
 <html lang="en">
 <head>
     <title>mateee.xyz</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="icon" type="image/gif" href="https://cdn.discordapp.com/attachments/1351252610094469205/1351952770487418980/image.png?ex=67dc3fa2&is=67daee22&hm=74a52e65778939874f5c3d5fc0811af6896c42b2ebcbe2cea3439fb2d9a2105d&">
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FF0000">
+    <link rel="icon" type="image/gif" href="home.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        @font-face {
-            font-family: mono;
-            src: url(mono.ttf);
-        }
+        @font-face { font-family: mono; src: url(mono.ttf); }
+        @font-face { font-family: derk; src: url(derk.otf); }
 
-        @font-face {
-            font-family: derk;
-            src: url(derk.otf);
-        }
-
-        html {
-            font-family: mono;
-        }
-
-        *, *::after, *::before {
-            box-sizing: inherit;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: #111;
-        }
-
-        #overlay-toggle {
-            position: absolute;
-            display: none;
-        }
-
-        .debold {
-            font-weight: 400;
-        }
-
-        .socials {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .overlay {
-            z-index: 1;
-            background-color: #000;
-        }
-
-        .overlay label {
-            display: grid;
-            place-items: center;
-            width: 100vw;
-            height: 100vw;
-            color: #fff;
-            font-size: 2rem;
-        }
-
-        .no-hover {
-            display: block;
-        }
-
-        .hover {
-            display: none;
-        }
-
-        .fullscreen {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-height: 100vh;
-            min-width: 100vw;
-        }
-
-        .text-content {
-            background: transparent;
-            display: grid;
-            place-content: center;
-            text-align: center;
-            color: #fff;
-        }
-
-        .text-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
-        }
-
-        .text-content p {
-            padding-top: 30px;
-            padding-right: 10px;
-            padding-bottom: 31px;
-            padding-left: 10px;
-            font-size: 1.7rem;
-            font-weight: 500;
-            line-height: 0;
-            color: silver;
-            display: flex;
-        }
-
-        .text-content a {
-            padding-top: 30px;
-            padding-right: 10px;
-            padding-bottom: 31px;
-            padding-left: 10px;
-            font-size: 1.3rem;
-            line-height: 0;
-            color: #ccc;
-            display: flex;
-        }
-
-        #overlay-toggle:checked~.overlay {
-            animation-fill-mode: forwards;
-            animation-name: fade, hide;
-            animation-delay: 0s, 600ms;
-            animation-duration: 600ms, 1ms;
-        }
-
-        #overlay-toggle:checked~.overlay label {
-            animation-fill-mode: forwards;
-            animation-name: fade;
-            animation-delay: 0s;
-            animation-duration: 500ms;
-        }
-
-        @media (hover: hover) {
-            .hover {
-                display: block;
-            }
-
-            .no-hover {
-                display: none;
-            }
-        }
-
-        @keyframes fade {
-            to {
-                opacity: 0;
-            }
-        }
-
-        @keyframes hide {
-            to {
-                visibility: hidden;
-            }
-        }
-
-        .unselectable {
+        html, body, * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
             -webkit-user-select: none;
-            -webkit-user-drag: none;
-            -webkit-touch-callout: none;
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
         }
 
-        .bg-video {
+        body { background: #111; font-family: mono; }
+
+        #overlay-toggle { display: none; position: absolute; }
+        .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+            background-color: #000; z-index: 5;
+        }
+        .overlay label {
+            color: #fff; font-size: 2rem; cursor: pointer; text-align: center;
+        }
+        .no-hover { display: block; }
+        .hover { display: none; }
+        @media (hover: hover) {
+            .hover { display: block; }
+            .no-hover { display: none; }
+        }
+        #overlay-toggle:checked ~ .overlay {
+            animation: fade 600ms forwards, hide 1ms 600ms forwards;
+        }
+        #overlay-toggle:checked ~ .overlay label {
+            animation: fade 500ms forwards;
+        }
+        @keyframes fade { to { opacity: 0; } }
+        @keyframes hide { to { visibility: hidden; } }
+
+        /* --- FULLSCREEN CONTENT --- */
+        .fullscreen { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); min-height: 100vh; min-width: 100vw; }
+        .text-content {
+            background: transparent; display: grid; place-content: center; text-align: center; color: #fff; z-index: 1;
+        }
+        .text-content h1 { font-size: 5rem; font-weight: 800; font-family: derk; text-shadow: 0 0 0.6em #0400ff; }
+
+        .socials {
+            display: flex; gap: 30px; justify-content: center; align-items: center;
+        }
+        .socials a {
+            font-size: 1.6rem; color: #ffae00; text-decoration: none; font-family: mono;
+            text-shadow: 0 0 0.5em #ffae00; margin: 10px 0; transition: all 0.3s;
+        }
+        .socials a:hover {
+            color: #00ffff; text-shadow: 0 0 0.6em #00ffff;
         }
 
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: black;
+        .bg-video { position: fixed; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index:-1; }
+        .video-container { position: fixed; top:0; left:0; width:100%; height:100%; overflow:hidden; display:flex; justify-content:center; align-items:center; background:black; }
+
+        .controls {
+            display: none;
+            position: fixed; bottom: 25px; left: 50%;
+            transform: translateX(-50%);
+            align-items: center; gap: 20px;
+            z-index: 10;
+        }
+        #overlay-toggle:checked ~ .controls { display: flex; }
+
+        .media-control {
+            background: rgba(0,0,0,0.6); border: none; border-radius: 50%;
+            width: 60px; height: 60px; font-size: 26px; color: #fff;
+            display: flex; justify-content: center; align-items: center;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .media-control:hover { background: rgba(255,255,255,0.2); transform: scale(0.75); }
+
+        .volume-slider {
+            -webkit-appearance: none; -moz-appearance: none; appearance: none;
+            width: 140px; height: 6px; background: rgba(255,255,255,0.3);
+            border-radius: 3px; cursor: pointer;
+        }
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance:none; width:16px; height:16px; border-radius:50%;
+            background:#ffae00; cursor:pointer; transition: background 0.3s;
+        }
+        .volume-slider::-webkit-slider-thumb:hover { background: #00ffff; }
+        .volume-slider::-moz-range-thumb {
+            width:16px; height:16px; border-radius:50%; background:#ffae00; cursor:pointer; transition: background 0.3s;
+        }
+        .volume-slider::-moz-range-thumb:hover { background: #00ffff; }
+
+        .current-date {
+            position: fixed; bottom: 25px; right: 25px;
+            color: #ffae00; font-family: mono;
+            font-size: 1.2rem; text-shadow: 0 0 0.5em #ffae00;
+            z-index: 10;
         }
     </style>
 </head>
+
 <body>
 <main>
-    <script>
-      function audioPlay() {
-        var audio = document.getElementById("audio");
-        audio.volume = 0.0;
-        audio.play();
-      }
-      function videoPlay() {
-        var video = document.getElementById("video");
-        (video.volume = 1), 0;
-        video.play();
-      }
-    </script>
     <input type="checkbox" autocomplete="off" id="overlay-toggle" />
     <div class="overlay fullscreen">
-      <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
-        <span class="no-hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
-        <span class="hover" style="font-family: mono; font-size: 0.6em">Bökj ide...</span>
-      </label>
+        <label for="overlay-toggle" onclick="audioPlay();videoPlay()">
+            <span class="no-hover" style="font-size: 1.2em">Bökj ide...</span>
+            <span class="hover" style="font-size: 1.2em">Bökj ide...</span>
+        </label>
     </div>
-    <audio loop="" preload="auto" id="audio">
-      <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video) (2).mp4" type="audio/mp3"/>
+
+    <audio loop preload="auto" id="audio">
+        <source src="Lil Tecca - Love Me (Official Music Video).mp4" type="audio/mp3"/> 
     </audio>
+
     <div class="video-container">
-      <video loop="" playsinline="" preload="auto" class="bg-video" id="video">
-        <source src="Future - PUFFIN ON ZOOTIEZ (Official Music Video) (2).mp4" type="video/mp4"/>
-      </video>
+        <video loop playsinline preload="auto" class="bg-video" id="video">
+            <source src="Lil Tecca - Love Me (Official Music Video).mp4" type="video/mp4"/>
+        </video>
     </div>
+
     <section class="fullscreen text-content">
-      <h1 class="unselectable" style="font-family: derk; text-shadow: 0 0 0.4em #0400ff">mateee</h1>
-      <div class="socials">
-        <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #ffae00;">Instagram</a>
-        <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" class="unselectable" style="text-decoration: none; font-family: mono; font-size: 1.1em; text-shadow: 0 0 0.4em #000000;"">TikTok</a>
-      </div>
+        <h1>mateee</h1>
+        <div class="socials">
+            <a href="https://www.instagram.com/n.a.g.y.m.a.t.t.e/profilecard/?igsh=N2dpdXp6bHRyYjJt" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@mateww__?_t=8rJIdI7WIis&_r=1" target="_blank">TikTok</a>
+        </div>
     </section>
+
+    <div class="controls">
+        <button class="media-control" id="media-btn" onclick="toggleMedia()">
+            <i class="fas fa-pause"></i>
+        </button>
+        <input type="range" min="0" max="1" step="0.01" value="0.5" id="volume-slider" class="volume-slider">
+        <button class="media-control" id="mute-btn" onclick="toggleMute()">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </div>
+
+    <div class="current-date" id="current-date"></div>
+
+    <script>
+        function audioPlay() { const audio = document.getElementById("audio"); audio.volume=0.5; audio.play(); }
+        function videoPlay() { const video = document.getElementById("video"); video.volume=0.5; video.play(); }
+        function toggleMedia() {
+            const video = document.getElementById("video");
+            const audio = document.getElementById("audio");
+            const btn = document.getElementById("media-btn");
+            if(video.paused) { video.play(); audio.play(); btn.innerHTML='<i class="fas fa-pause"></i>'; } 
+            else { video.pause(); audio.pause(); btn.innerHTML='<i class="fas fa-play"></i>'; }
+        }
+        function toggleMute() {
+            const video = document.getElementById("video");
+            const audio = document.getElementById("audio");
+            const muteBtn = document.getElementById("mute-btn");
+            if(video.muted) { video.muted=false; audio.muted=false; muteBtn.innerHTML='<i class="fas fa-volume-up"></i>'; }
+            else { video.muted=true; audio.muted=true; muteBtn.innerHTML='<i class="fas fa-volume-mute"></i>'; }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const video = document.getElementById("video");
+            const audio = document.getElementById("audio");
+            const volumeSlider = document.getElementById("volume-slider");
+            video.volume = 0.5; audio.volume = 0.5; volumeSlider.value = 0.5;
+            volumeSlider.addEventListener("input", function() {
+                const volume = parseFloat(this.value);
+                video.volume = volume; audio.volume = volume;
+            });
+
+            const dateElem = document.getElementById("current-date");
+
+            function updateDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0'); // hónap 01-12 formátumban
+            const day = String(today.getDate()).padStart(2, '0'); // nap 01-31 formátumban
+            dateElem.textContent = `${year}.${month}.${day}`;
+            }
+
+            updateDate();
+            setInterval(updateDate, 60 * 60 * 1000); // óránként frissít
+            });
+    </script>
 </main>
 </body>
 </html>
